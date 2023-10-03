@@ -27,36 +27,65 @@ class XoConnect {
         return XoConnect.instance;
     }
 
-    async isAvailable(): Promise<any> {
-        return "hello";
+    async isAvailable(): Promise<boolean> {
+        this.sendRequest(METHODS.available);
+        const resp: any = await this.getResponse(METHODS.available);
+        return resp?.data?.active;
     }
 
     async connect(): Promise<any> {
-        return "hello";
+        this.sendRequest(METHODS.connect);
+        const resp: any = await this.getResponse(METHODS.connect);
+        this.client = resp?.data;
+        return resp?.data;
     }
 
     getClient() {
-        return "hello";
+        return this.client;
     }
 
     getChains() {
-        return "hello";
+        return this.client?.chains;
     }
 
     async personalSign(chainID: string, address: string, message: string): Promise<any> {
-        return "hello";
+        const params = { chainID, address, message };
+        this.sendRequest(METHODS.personalSign, params);
+        const resp: any = await this.getResponse(METHODS.personalSign);
+        return resp?.data;
     }
 
     async transactionSign(chainID: string, from: string, to: string, value: string, data: string): Promise<any> {
-        return "hello";
+        const params = { chainID, from, to, value, data };
+        this.sendRequest(METHODS.transactionSign, params);
+        const resp: any = await this.getResponse(METHODS.transactionSign);
+        return resp?.data;
     }
 
     sendRequest(method: METHODS, params?: any) {
-        return "hello";
+        window.postMessage(
+            JSON.stringify({
+                type: TYPES.request,
+                method: method,
+                params,
+            })
+        );
     }
 
     async getResponse(method: METHODS): Promise<string> {
-        return "hello";
+        return new Promise((resolve) => {
+            const messageHandler = (event: MessageEvent) => {
+                if (event.data?.length) {
+                    const data = JSON.parse(event.data);
+                    if (data.type === TYPES.response && data.method === method) {
+                        window.removeEventListener("message", messageHandler);
+                        resolve(data);
+                    }
+                }
+            };
+
+            window.addEventListener("message", messageHandler, false);
+        });
     }
 }
 
