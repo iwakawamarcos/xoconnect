@@ -1,41 +1,23 @@
-
-
 declare module 'xo-connect' {
-    export enum METHODS {
-      available = "available",
-      connect = "connect",
-      personalSign = "personalSign",
-      transactionSign = "transactionSign",
-    }
-  
-    export enum TYPES {
-      request = "request",
-      response = "response",
-    }
-  
-    export interface XoConnectClient {
-      _id: string;
-      alias: string;
-      profileImagePath: { square: string; thumbnail: string };
-      chains: Array<{ chainID: string; address: string }>;
-    }
-  
-    export class XoConnect {
-      private client: XoConnectClient | null;
-  
-      static getInstance(): XoConnect;
-  
-      isAvailable(): Promise<boolean>;
-  
-      connect(): Promise<XoConnectClient>;
-  
-      getClient(): XoConnectClient | null;
-  
-      getChains(): Array<{ chainID: string; address: string }> | null;
-  
-      personalSign(chainID: string, address: string, message: string): Promise<any>;
-  
-      transactionSign(chainID: string, from: string, to: string, value: string, data: string): Promise<any>;
-    }
+  export enum METHODS {
+    available = "available",
+    connect = "connect",
+    personalSign = "personalSign",
+    transactionSign = "transactionSign",
   }
-  
+
+  export enum TYPES {
+    request = "request",
+    response = "response",
+  }
+
+  export class XoConnectService {
+    static getInstance(): XoConnectService;
+    async isAvailable(): Promise<boolean>;
+    async connect(): Promise<any>;
+    getClient(): any;
+    getChains(): any[];
+    async personalSign(chainID: string, address: string, message: string): Promise<any>;
+    async transactionSign(chainID: string, from: string, to: string, value: string, data: string): Promise<any>;
+  }
+}
