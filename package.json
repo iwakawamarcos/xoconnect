@@ -2,7 +2,7 @@
     "name": "xo-connect",
     "version": "1.0.0",
     "description": "xoConnect",
-    "main": "dist/xo-connect.js",
+    "main": "dist/xoConnect.js",
     "types": "./types/xo-connect.d.ts",
     "scripts": {
         "start": "webpack serve --config webpack.config.js --open",
