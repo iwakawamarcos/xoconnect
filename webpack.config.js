@@ -3,7 +3,7 @@ const path = require('path');
   
 module.exports = {
   mode: 'production',
-  entry: './src/xoConnectTest.tsx',
+  entry: './src/XoConnect.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'xo-connect.js',
