@@ -12,7 +12,7 @@ declare module 'xo-connect' {
   }
 
   export class XoConnect {
-    static getInstance(): XoConnectService;
+    static getInstance(): XoConnect;
     async isAvailable(): Promise<boolean>;
     async connect(): Promise<any>;
     getClient(): any;
