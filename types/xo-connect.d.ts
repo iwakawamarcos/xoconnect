@@ -1,6 +1,6 @@
-// types/xo-connect.d.ts
 
-declare module 'xo-connect-sdk' {
+
+declare module 'xo-connect' {
     export enum METHODS {
       available = "available",
       connect = "connect",
