@@ -11,7 +11,7 @@ declare module 'xo-connect' {
     response = "response",
   }
 
-  export class XoConnectService {
+  export class XoConnect {
     static getInstance(): XoConnectService;
     async isAvailable(): Promise<boolean>;
     async connect(): Promise<any>;
