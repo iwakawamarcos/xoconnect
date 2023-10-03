@@ -1,2 +1,2 @@
 # xoconnect
-A LatamXO crypto connection tool
+tsc -> compiler
