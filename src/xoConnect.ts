@@ -10,7 +10,7 @@ export enum TYPES {
     response = "response",
 }
 
-class XoConnect {
+export class XoConnect {
     private client: {
         _id: string;
         alias: string;
@@ -89,4 +89,4 @@ class XoConnect {
     }
 }
 
-export default XoConnect;
+

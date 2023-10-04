@@ -13,11 +13,11 @@ declare module 'xo-connect' {
 
   export class XoConnect {
     static getInstance(): XoConnect;
-    async isAvailable(): Promise<boolean>;
-    async connect(): Promise<any>;
+    isAvailable(): Promise<boolean>;
+    connect(): Promise<any>;
     getClient(): any;
     getChains(): any[];
-    async personalSign(chainID: string, address: string, message: string): Promise<any>;
-    async transactionSign(chainID: string, from: string, to: string, value: string, data: string): Promise<any>;
+    personalSign(chainID: string, address: string, message: string): Promise<any>;
+    transactionSign(chainID: string, from: string, to: string, value: string, data: string): Promise<any>;
   }
 }

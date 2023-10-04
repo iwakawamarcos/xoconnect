@@ -8,7 +8,7 @@ export declare enum TYPES {
     request = "request",
     response = "response"
 }
-declare class XoConnect {
+export declare class XoConnect {
     private client;
     private static instance;
     static getInstance(): XoConnect;
@@ -35,4 +35,3 @@ declare class XoConnect {
     sendRequest(method: METHODS, params?: any): void;
     getResponse(method: METHODS): Promise<string>;
 }
-export default XoConnect;

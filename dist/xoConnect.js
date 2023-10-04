@@ -9,19 +9,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TYPES = exports.METHODS = void 0;
+exports.XoConnect = exports.TYPES = exports.METHODS = void 0;
 var METHODS;
 (function (METHODS) {
     METHODS["available"] = "available";
     METHODS["connect"] = "connect";
     METHODS["personalSign"] = "personalSign";
     METHODS["transactionSign"] = "transactionSign";
-})(METHODS || (exports.METHODS = METHODS = {}));
+})(METHODS = exports.METHODS || (exports.METHODS = {}));
 var TYPES;
 (function (TYPES) {
     TYPES["request"] = "request";
     TYPES["response"] = "response";
-})(TYPES || (exports.TYPES = TYPES = {}));
+})(TYPES = exports.TYPES || (exports.TYPES = {}));
 class XoConnect {
     constructor() {
         this.client = null;
@@ -96,4 +96,4 @@ class XoConnect {
         });
     }
 }
-exports.default = XoConnect;
+exports.XoConnect = XoConnect;
